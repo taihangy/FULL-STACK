@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- haha -->
+<html>
+	<head>
+		<title>HTML DEMO</title>
+		
+	</head>
+	<body>
+		<form enctype="multipart/form-data" method = "post">
+			Please enter your name: <br>
+			<input type="text" name = "feedback" value = "Taihang Ye" autofocus> <br><br>
+
+			Pleasr choose the transport method: <br>
+			<input type="checkbox" name = "items" value = "car">Car<br>
+			<input type="checkbox" name = "items" value = "bike">Bike<br>
+			<input type="checkbox" name = "items" value = "train">Train<br><br>
+
+			Please indicate your intelligence level: <br>
+			<input type="radio" name = "iq" value="high">High<br>
+			<input type="radio" name = "iq" value="medium">Medium<br>
+			<input type="radio" name = "iq" value="low">Low<br><br>
+
+			Please enter your password: <br>
+			<input type="password" name = "userpassword" placeholder = "password's length is greater then 6" required><br><br>
+			<input type="submit" name = "Send"><br><br>
+
+			<p>What city you like to live in?</p>
+			<select name = "cities">
+				<option name = "hk">Hong Kong</option>
+				<option name = "hz">Hang Zhou</option>
+				<option name = "bj">Bei Jing</option>
+			</select> <br><br>
+
+			Please select a file your want to upload. <br>
+			<input type="file" name = "fileToUpload"><br>
+
+			<input type="submit" value = "Upload this file"><br><br>
+
+			<label for="age">Your age</label>
+			<input type="number" min = "0" max = "99" step = "1" name = "age" value = "20" required>
+
+			<fieldset>
+				<legend>My favorate sports</legend>
+				Swim<br>
+				Skate<br>
+			</fieldset>
+		</form>
+	</body>
+</html>

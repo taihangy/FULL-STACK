@@ -1,0 +1,5 @@
+#top {color: red}
+a:link {background: yellow}
+a:hover {background: black}
+a:visited {background: green}
+a:active {background: white}
