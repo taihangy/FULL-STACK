@@ -1,12 +1,18 @@
 <DOCTYPE html>
 <html>
 	<head>
+		<style type="text/css">
+			fieldset {background:lightyellow; border: 10px solid yellow; margin-bottom:10px;
+								width:720px;}
+			label {width:180px; display:inline-block; text-align: right; vertical-align: top;}
+			
+		</style>
 	</head>
 	<body>
 		<h1>Please Enter Your Details For Our Dating Websites</h1>
 		<form enctype="multipart/form-data" action="http://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php" method post>
 			<!-- photo -->
-			<fieldset class = >
+			<fieldset>
 				<legend>Your Face</legend>
 				<label name = "imageToUpload" id = "imageToUpload">Your Image: </label>
 				<input type="file" name = "imageToUpload" required> <br>
@@ -15,11 +21,11 @@
 			</fieldset>	<br>
 
 			<!-- general detail -->
-			<fieldset> 
+			<fieldset>
 				<legend>Your General Details</legend>
 				<label name = "username" id = "username">Name: </label>
 				<input type="text" name = "username" placeholder = "Your full name" required> <br>
-
+				
 				<label name = "gender" id = "gender">Gender: </label>
 				<input type="radio" name = "gender" value = "male" required> Male
 				<input type="radio" name = "gender" value = "female" required> Female <br>
