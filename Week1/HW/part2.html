@@ -2,10 +2,30 @@
 <html>
 	<head>
 		<style type="text/css">
-			fieldset {background:lightyellow; border: 10px solid yellow; margin-bottom:10px;
-								width:720px;}
-			label {width:180px; display:inline-block; text-align: right; vertical-align: top;}
-			
+			fieldset {
+				background:lightyellow; 
+				border: 10px solid yellow; 
+				margin-bottom:10px;
+				width:720px;
+			}
+			label {
+				width:180px;
+				display:inline-block; 
+				text-align: right; 
+				vertical-align: top;
+			}
+			.choice {width: auto;}
+			textarea {width:360px; height:50px;}
+			span {
+					width: 60px;
+        	text-align: center; 
+        	vertical-align: top; 
+        	display:inline-block;
+        	color:white;
+			}
+			.rangemin { background-color: brown; }  
+      .rangemax { background-color: darkviolet; }
+
 		</style>
 	</head>
 	<body>
@@ -14,31 +34,32 @@
 			<!-- photo -->
 			<fieldset>
 				<legend>Your Face</legend>
-				<label name = "imageToUpload" id = "imageToUpload">Your Image: </label>
+				<label for = "imageToUpload">Your Image: </label>
 				<input type="file" name = "imageToUpload" required> <br>
-				<label name = "preview" id = "preview">Image Preview: </label>
-				<img src = "" id = "preview" />
+				<labe for = "preview">Image Preview: </label>
+				<img id = "preview" />
 			</fieldset>	<br>
 
 			<!-- general detail -->
 			<fieldset>
 				<legend>Your General Details</legend>
-				<label name = "username" id = "username">Name: </label>
+				<label for = "username">Name: </label>
 				<input type="text" name = "username" placeholder = "Your full name" required> <br>
 				
-				<label name = "gender" id = "gender">Gender: </label>
-				<input type="radio" name = "gender" value = "male" required> Male
-				<input type="radio" name = "gender" value = "female" required> Female <br>
+				<label for="genderM">Gender: </label>
+				<input type="radio" id="genderM" name="gender" value="M" required><label for="genderM" class="choice">Male</label>
+				<input type="radio" id="genderF" name="gender" value="F" required><label for="genderF" class="choice">Female</label>
+				<br>
 
-				<label name = "age" id = "age">Age: </label>
+				<label for = "age">Age: </label>
 				<input type="number" name = "age" required> <br>
 
-				<label name = "birthday" id = "birthday">Date Of Birth: </label>
+				<label for = "birthday">Date Of Birth: </label>
 				<input type="date" name = "birthday" > <br>
 
-				<label name = "color" id = "color">Favorite Color: </label>
+				<label for = "color">Favorite Color: </label>
 				<input type="color" name = "color"> <br>
-				<label name = "countries" id = "countries">Which Country: </label>
+				<label for = "countries">Which Country: </label>
 				<select name = "countries" >
 					<option name = "none"></option>
 					<option name = "china">China</option>
@@ -52,25 +73,31 @@
 			<!-- indicators -->
 			<fieldset>
 				<legend>Your Indicators</legend>
-				<label name = "hright" id = "hright">Height: </label>
-				Short<input type="range" name = "height" min = "0" max = "100" step = "5" value = "50">Tall <br>
-				<label name = "salary" id = "salary">Salary: </label>
-				Poor<input type="range" min = "0" max = "100" step = "5" name = "salary" value = "50">Rich <br>
+				<label for = "height">Height: </label>
+					<span class = "rangemin">Short</span>
+					<input type="range" name = "height" min = "0" max = "100" step = "5" value = "50">
+					<span class = "rangemax">Tall</span>
+				<br>
+				<label for = "salary">Salary: </label>
+					<span class = "rangemin">Poor</span>
+					<input type="range" min = "0" max = "100" step = "5" name = "salary" value = "50">
+					<span class = "rangemax">Rich</span>
+				<br>
 			</fieldset> <br>
 
 			<!-- contact info -->
 			<fieldset>
 				<legend>Your Contact Infomation</legend>
-				<label name = "email" id = "email">Email: </label>
+				<label for = "email">Email: </label>
 				<input type="email" name = "email" required><br>
-				<label name = "mobile" id = "mobile">Mobile: </label>
+				<label for = "mobile">Mobile: </label>
 				<input type="tel" name = "mobile"><br>
-				<label name = "address" id = "address">Address: </label>
+				<label for = "address">Address: </label>
 				<textarea row = "3" col = "30" name = "address"></textarea><br>
-				<label name = "contactMethods" id = "contactMethods">Methods to contact you: </label>
-				<input type="checkbox" name = "contactMethod" value="email">Email
-				<input type="checkbox" name = "contactMethod" value="whatsapp">Whatsapp
-				<input type="checkbox" name = "contactMethod" value="inappchat">In-app chat
+				<label for = "contactMethod" >Methods to contact you: </label>
+				<input type="checkbox" class = "choice" name = "contactMethod" value="email">Email
+				<input type="checkbox" class = "choice" name = "contactMethod" value="whatsapp">Whatsapp
+				<input type="checkbox" class = "choice" name = "contactMethod" value="inappchat">In-app chat
 			</fieldset>
 			<input type="submit" value="Submit">
 		</form>
