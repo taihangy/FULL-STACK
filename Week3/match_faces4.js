@@ -8,7 +8,7 @@ function generateFaces() {
 	
 	for(var i = 0; i < numberOfFaces; i++) {
 		leftImg = document.createElement("img");
-		leftImg.setAttribute("src", "download.jpeg");
+		leftImg.setAttribute("src", "http://home.cse.ust.hk/~rossiter/mooc/matching_game/smile.png");
 		up = Math.floor(Math.random() * height);
 		left = Math.floor(Math.random() * width );
 		leftImg.style.top = up + "px";
@@ -37,8 +37,4 @@ function generateFaces() {
 	}
 }
 
-//delete faces
-function deleteFaces() {
-
-}
 

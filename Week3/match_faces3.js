@@ -6,7 +6,7 @@ function generateFaces() {
 	var width = 400; var height = 400; 
 	for(var i = 0; i < numberOfFaces; i++) {
 		leftImg = document.createElement("img");
-		leftImg.setAttribute("src", "download.jpeg");
+		leftImg.setAttribute("src", "http://home.cse.ust.hk/~rossiter/mooc/matching_game/smile.png");
 		top = Math.floor(Math.random() * height);
 		left = Math.floor(Math.random() * width );
 		leftImg.style.top = top + "px";
