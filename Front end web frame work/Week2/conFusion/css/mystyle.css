@@ -62,6 +62,10 @@ body{
     color:#000000;
 }
 
+.navbar-inverse .navbar-form .checkbox-inline strong {
+    color:#fff;
+}
+
 
 
 
