@@ -2,15 +2,11 @@
 
 angular.module('confusionApp')
   .constant("baseURL", "http://localhost:3000/")
-  .factory('menuFactory', ['$http', 'baseURL', function($http, baseURL) {
+  .factory('menuFactory', ['$resource', 'baseURL', function($resource, baseURL) {
         var menuFac = {};
         
         menuFac.getDishes = function() {
-          return $http.get(baseURL+"dishes");
-        };
-
-        menuFac.getDish = function(index) {
-          return $http.get(baseURL+"dishes/"+index);
+          return $resource(baseURL+"dishes/:id", null, {'update':{method:'PUT'}});
         };
 
         return menuFac;

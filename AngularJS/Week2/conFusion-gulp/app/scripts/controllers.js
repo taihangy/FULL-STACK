@@ -8,15 +8,13 @@ angular.module('confusionApp')
         $scope.showDetails = false;
         $scope.showMenu = false;
         $scope.message = "Loading...";
-        $scope.dishes = [];
-        menuFactory.getDishes()
-        .then(
+        $scope.dishes = menuFactory.getDishes().query(
             function(response) {
-                $scope.dishes = response.data;
+                $scope.dishes = response;
                 $scope.showMenu = true;
             },
             function(response) {
-                $scope.message = "Error: " + response.status + " " +response.statusText;
+                $scope.message = "Error: " + response.status + " " + response.statusText;
             }
         );
 
