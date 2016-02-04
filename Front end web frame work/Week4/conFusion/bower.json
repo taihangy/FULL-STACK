@@ -1,0 +1,28 @@
+{
+  "name": "conFusion",
+  "homepage": "https://github.com/taihangy/FULL-STACK",
+  "authors": [
+    "taihangy <yetaihang.zju@gmail.com>"
+  ],
+  "description": "Web site for an awesome restaurant",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "conFusion",
+    "Fusion",
+    "Restaurant"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "font-awesome": "~4.4.0"
+  }
+}

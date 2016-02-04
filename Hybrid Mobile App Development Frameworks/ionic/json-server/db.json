@@ -6,7 +6,7 @@
       "image": "images/uthapizza.png",
       "category": "mains",
       "label": "Hot",
-      "price": "4.99",
+      "price": 4.99,
       "description": "A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.",
       "comments": [
         {
@@ -38,6 +38,36 @@
           "comment": "It's your birthday, we're gonna party!",
           "author": "25 Cent",
           "date": "2011-12-02T17:57:28.556094Z"
+        },
+        {
+          "rating": 5,
+          "comment": "Wonderful dish!",
+          "author": "Taihang Ye",
+          "date": "2016-02-04T15:01:05.990Z"
+        },
+        {
+          "rating": 5,
+          "comment": "good",
+          "author": "Ye",
+          "date": "2016-02-04T15:02:02.307Z"
+        },
+        {
+          "rating": 5,
+          "comment": "good",
+          "author": "Ye",
+          "date": "2016-02-04T15:02:43.796Z"
+        },
+        {
+          "rating": "5",
+          "comment": "HAHA",
+          "author": "Ye Taihang",
+          "date": "2016-02-04T15:20:42.530Z"
+        },
+        {
+          "rating": 5,
+          "comment": "",
+          "author": "",
+          "date": "2016-02-04T15:21:26.207Z"
         }
       ]
     },
@@ -88,7 +118,7 @@
       "image": "images/vadonut.png",
       "category": "appetizer",
       "label": "New",
-      "price": "1.99",
+      "price": 1.99,
       "description": "A quintessential ConFusion experience, is it a vada or is it a donut?",
       "comments": [
         {
@@ -120,6 +150,12 @@
           "comment": "It's your birthday, we're gonna party!",
           "author": "25 Cent",
           "date": "2011-12-02T17:57:28.556094Z"
+        },
+        {
+          "rating": "4",
+          "comment": "Good!",
+          "author": "Ye",
+          "date": "2016-02-04T15:26:37.676Z"
         }
       ]
     },
