@@ -152,7 +152,7 @@ angular.module('conFusion.controllers', [])
     };
 }])
 
-.controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory', 'baseURL', function($scope, $stateParams, menuFactory, baseURL) {
+.controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory', 'baseURL', '$ionicPopover', 'favoriteFactory', function($scope, $stateParams, menuFactory, baseURL, $ionicPopover, favoriteFactory) {
     $scope.baseURL = baseURL;
     $scope.dish = {};
     $scope.showDish = false;
@@ -167,7 +167,27 @@ angular.module('conFusion.controllers', [])
         function(response) {
             $scope.message = "Error: "+response.status + " " + response.statusText;
         }
-    ); 
+    );
+
+    $ionicPopover.fromTemplateUrl('templates/mypopover.html', {
+        scope: $scope
+      }).then(function(popover){
+        $scope.popover = popover;
+      });
+
+    $scope.openPopover = function($event) {
+      // console.log("pop over!");
+      $scope.popover.show($event);
+    }; 
+
+    $scope.closePopover = function() {
+      $scope.popover.hide();
+    };
+
+   $scope.addFavorite = function (index) {
+      favoriteFactory.addToFavorites(index);
+      $scope.closePopover();
+    };
 }])
 
 .controller('DishCommentController', ['$scope', 'menuFactory', function($scope,menuFactory) {
@@ -252,7 +272,7 @@ angular.module('conFusion.controllers', [])
         title: 'Confirm Delete',
         template: 'Are you sure you want to delete this item?'
       });
-      confirm.then(function(res) {
+      confirmPopup.then(function(res) {
         if (res) {
           console.log("Ok to delete");
           favoriteFactory.deleteFromFavorites(index);
