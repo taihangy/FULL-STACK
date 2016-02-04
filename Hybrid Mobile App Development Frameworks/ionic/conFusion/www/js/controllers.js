@@ -41,35 +41,36 @@ angular.module('conFusion.controllers', [])
     }, 1000);
   };
 
+  // Create the reservation modal that we will use later
   $ionicModal.fromTemplateUrl('templates/reserve.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.reserveForm = modal;
   });
 
-  // Triggered in the login modal to close it
+  // Triggered in the reservation modal to close it
   $scope.closeReserve = function() {
     $scope.reserveForm.hide();
   };
 
-  // Open the login modal
+  // Open the reservation modal
   $scope.reserve = function() {
     $scope.reserveForm.show();
   };
 
-  // Perform the login action when the user submits the login form
+  // Perform the reservation action when the user submits the reservation form
   $scope.doReserve = function() {
     console.log('Doing reservation', $scope.reservation);
 
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
+    // Simulate a reservation delay. Remove this and replace with your reservation
+    // code if using a reservation system
     $timeout(function() {
       $scope.closeReserve();
     }, 1000);
   };
 })
 
-.controller('MenuController', ['$scope', 'menuFactory', 'baseURL', function($scope, menuFactory, baseURL) {
+.controller('MenuController', ['$scope', 'menuFactory', 'favoriteFactory', 'baseURL', '$ionicListDelegate', function($scope, menuFactory, favoriteFactory, baseURL, $ionicListDelegate) {
     $scope.baseURL = baseURL;
     $scope.tab = 1;
     $scope.filtText = '';
@@ -78,13 +79,13 @@ angular.module('conFusion.controllers', [])
     $scope.message = "Loading ...";
     
     menuFactory.getDishes().query(
-        function(response) {
-            $scope.dishes = response;
-            $scope.showMenu = true;
-        },
-        function(response) {
-            $scope.message = "Error: "+response.status + " " + response.statusText;
-        });
+      function(response) {
+          $scope.dishes = response;
+          $scope.showMenu = true;
+      },
+      function(response) {
+          $scope.message = "Error: "+response.status + " " + response.statusText;
+    });
 
                 
     $scope.select = function(setTab) {
@@ -111,6 +112,12 @@ angular.module('conFusion.controllers', [])
     $scope.toggleDetails = function() {
         $scope.showDetails = !$scope.showDetails;
     };
+
+    $scope.addFavorite = function(index) {
+      console.log("index is " + index);
+      favoriteFactory.addToFavorites(index);
+      $ionicListDelegate.closeOptionButtons();
+    };  
 }])
 
 .controller('ContactController', ['$scope', function($scope) {
@@ -208,5 +215,48 @@ angular.module('conFusion.controllers', [])
     console.log($scope.leaders);
 
 }])
+
+.controller('FavoritesController', ['$scope', 'menuFactory', 'favoriteFactory', 'baseURL', '$ionicListDelegate', function($scope, menuFactory, favoriteFactory, baseURL, $ionicListDelegate) {
+    $scope.baseURL = baseURL;
+    $scope.shouldShowDelete = false;
+    $scope.favorites = favoriteFactory.getFavorites();
+
+    $scope.dishes = menuFactory.getDishes().query(
+      function(response) {
+        $scope.dishes = response;
+        $scope.showMenu = true;
+      },
+      function(response) {
+        $scope.message = "Error: "+response.status + " " + response.statusText;
+      }
+    );
+
+    $scope.toggleDelete = function() {
+      $scope.shouldShowDelete = !$scope.shouldShowDelete;
+      console.log($scope.shouldShowDelete);
+    };
+
+    $scope.deleteFavorite = function(index) {
+      favoriteFactory.deleteFromFavorites(index);
+      $scope.shouldShowDelete = false;
+    };
+}])
+
+.filter('favoriteFilter', function() {
+  
+    return function(dishes, favorites) {
+      var out = [];
+      for (var i = 0; i < favorites.length; i++) {
+        for (var j = 0; j < dishes.length; j++) {
+          if (dishes[j].id === favorites[i].id) {
+            out.push(dishes[j]);
+            break;
+          }
+        }
+      }
+      return out;
+    };
+
+})
 
 ;
