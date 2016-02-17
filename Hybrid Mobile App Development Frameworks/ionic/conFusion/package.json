@@ -26,7 +26,11 @@
       "locator": "https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git",
       "id": "cordova-plugin-x-toast"
     },
-    "org.apache.cordova.camera"
+    "org.apache.cordova.camera",
+    {
+      "locator": "https://github.com/hazemhagrass/phonegap-base64.git",
+      "id": "com-badrit-base64"
+    }
   ],
   "cordovaPlatforms": [
     "ios",
